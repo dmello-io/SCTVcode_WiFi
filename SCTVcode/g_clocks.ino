@@ -63,6 +63,7 @@ char scopeClock[] = "The Scope Clock\n";
 char fromStr[]    = "from\n";
 char cathCorn[]   = "Cathode Corner\n";
 char copyR[]   = "(C)2021 David Forbes\n";
+char modBy[] = "Modified by Kayden\n";
 struct item splashList[] = {
   {text,8,0,scopeClock,0,0},
   {text,8,0,fromStr,   0,0},
@@ -70,6 +71,8 @@ struct item splashList[] = {
   {text,10,0,BlankLn,   0,0},
   {text,6,0,versionNo, 0,0},
   {text,6,0,copyR, 0,0},
+  {text,10,0,BlankLn,   0,0},
+  {text,6,0,modBy, 0,0},
   {listend,0,0,BlankLn,0,0}
 };
 
