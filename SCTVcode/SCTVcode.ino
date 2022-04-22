@@ -184,6 +184,9 @@ unsigned long GPSage;  // GPS time since last valid reading, may indicate invali
 
 unsigned int lastMicros;     // for display refresh
 
+// Serial Input variables
+int rxRaw = 0;
+
 // Rotary encoder
 int EncDir = 0;      // initial position
 int ButHist = 0;     // button pressing history
@@ -577,6 +580,18 @@ void InitEnc()
 {
   LastEnc = digitalRead(encBPin) << 1 | digitalRead(encAPin); 
   LastEnc = LastEnc * 5;  // copy of old and new next to each other
+}
+
+// Read Serial input and commit action
+void DoRx()
+{
+  if (Serial.available() > 0) {
+    rxRaw = Serial.read()- '0'; // Byte to Int
+    if ((rxRaw > 0) && (rxRaw < 8)) 
+    {
+      theClock = rxRaw;
+    }
+  }
 }
 
 // Read encoder, update history, look for motion, update into EncDir

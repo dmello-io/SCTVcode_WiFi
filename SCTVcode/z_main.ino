@@ -19,6 +19,7 @@ void setup()
   rn1 = rn2 = rn3 = rn4 = 0x45;   // random number generator seed? Why not use random()?
   Wire.begin();          // RTC uses I2C
   Serial.begin(115200);    // debug port
+  Serial.println("I'm back baby"); // Kayden: Debug - Remove me 
   delay(100);
   EncDir = 0;    // no buttons being pushed or knobs being turned, we hope
   pushed = false;
@@ -140,7 +141,9 @@ void loop()
   
   blinkCount++;
   Blink = (blinkCount >> BlnkBit) & 1;  // a one bit, 5 times a second thingie
-  
+
+  // Kayden: Debug - Added serial input to main loop
+  DoRx();
   DoEnc();
   DoButt();
   if (InMenu) 
@@ -154,6 +157,7 @@ void loop()
     if (EncDir != 0) 
     {   // If knob turned, choose the next clock face
       theClock += EncDir;
+      Serial.println(theClock); // Kayden: Debug - Remove me 
       if (theClock >= NClks) theClock = 0;   // select the next clock face
       if (theClock < 0) theClock = NClks - 1;
       if (theClock == 1) 
