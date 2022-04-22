@@ -40,7 +40,7 @@
 // V 1.0.3 02/12/22 DF  Fixed GPS startup by making splash screen faster, improved 6,9 some more
 // V 1.0.4 02/13/22 DF  Gated USB accesses with userial active test
 
-char versionNo[]  = "Version 1.0.4\n";
+char versionNo[]  = "Version 1.0.4.1\n";
 
 // THINGS TO DO
 
